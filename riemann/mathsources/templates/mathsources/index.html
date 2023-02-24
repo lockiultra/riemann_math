@@ -1,0 +1,33 @@
+{% extends 'mathsources/base.html' %}
+{% load static %}
+
+{% block head%}
+<link rel="stylesheet" href="{% static 'mathsources/css/index.css' %}">
+<script src="{% static 'mathsources/js/index.js' %}"></script>
+{% endblock%}
+
+{% block content %}
+<div class="main-content">
+    <h1 class="title-animation">R I E M A N N</h1>
+    <p class="desc-animation">Riemann - это сайт агрегатор материалов, связанных с математикой.</p>
+    <a onclick="scrollToBlock()" class="button button-animation" >Подробнее</a>
+  </div>
+  <div id="desc-block">
+      <div class="block">
+          <h2 class="title">Книги</h2>
+          <p class="description">Сборник ссылок на книги на различные темы.</p>
+          <a href="{% url 'books' %}" class="button-to">К книгам</a>
+      </div>
+      <div class="block">
+          <h2 class="title">Курсы</h2>
+          <p class="description">Сборник ссылок на курсы на различные темы.</p>
+          <a href="#" class="button-to">К курсам</a>
+      </div>
+      <div class="block">
+          <h2 class="title">Форум</h2>
+          <p class="description">Место для обсуждения различных математических вопросов.</p>
+          <a href="#" class="button-to">На форум</a>
+      </div>
+  </div>
+  </div>
+{% endblock %}

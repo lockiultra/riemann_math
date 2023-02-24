@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Riemann Math</title>
+	<link rel="stylesheet" href="{% static 'mathcources/css/base.css' %}">
+	{% block head %}
+	{% endblock %}
+</head>
+<body>
+	<div class="container">
+		<header>
+			<img src="{% static 'mathsources/img.logo.png' %}" alt="My Website">
+			<nav>
+				<ul>
+					<li><a href="#">Книги</a></li>
+					<li><a href="#">Курсы</a></li>
+					<li><a href="#">Форум</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+		<footer>
+			&copy; 2023 Riemann
+		</footer>
+	</div>
+</body>
+</html>

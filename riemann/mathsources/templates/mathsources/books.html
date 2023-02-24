@@ -1,0 +1,56 @@
+{% extends 'mathsources/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'mathsources/css/books.css'%}">
+{% endblock %}
+
+{% block content %}
+<h1>Категории</h1>
+    <div class="flat-row">
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/analytic_geometry.png' %}" alt="Картинка 1">
+                <h3>Аналитическая геометрия</h3>
+                <p>Описание картинки 1</p>
+            </a>
+        </div>
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/calculus.jpeg' %}" alt="Картинка 2">
+                <h3>Математический анализ</h3>
+                <p>Описание картинки 2</p>
+            </a>
+        </div>
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/linear_algebra.gif' %}" alt="Картинка 3">
+                <h3>Линейная алгебра</h3>
+                <p>Описание картинки 3</p>
+            </a>
+        </div>
+    </div>
+    <div class="flat-row down">
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/machine_learning.webp' %}" alt="Картинка 4">
+                <h3>Машинное обучение</h3>
+                <p>Описание картинки 4</p>
+            </a>
+        </div>
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/probability_theory.jpeg' %}" alt="Картинка 5">
+                <h3>Теория вероятностей</h3>
+                <p>Описание картинки 5</p>
+            </a>
+        </div>
+        <div class="flat-container">
+            <a href="#">
+                <img src="{% static 'mathsources/img/math_statistics.jpeg' %}" alt="Картинка 6">
+                <h3>Математическая статистика</h3>
+                <p>Описание картинки 6</p>
+            </a>
+        </div>
+	</div>
+{% endblock %}
