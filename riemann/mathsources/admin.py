@@ -17,8 +17,8 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 class LinksAdmin(admin.ModelAdmin):
-    list_display = ('id', 'ozon_link', 'ymarket_link', 'wb_link')
-    list_display_links = ('id',)
+    list_display = ('id', 'book_name')
+    list_display_links = ('id', 'book_name')
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Category, CategoryAdmin)

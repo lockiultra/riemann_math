@@ -1,0 +1,18 @@
+{% extends 'mathsources/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'mathsources/css/books_page.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="flat-row down">
+    {% for book in page_obj %}
+        <div class="flat-container">
+            <a href="">
+                <img src={{book.img.url|default:"" }} alt="">
+                <h3>{{ book.title }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

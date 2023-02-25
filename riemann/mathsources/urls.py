@@ -6,7 +6,8 @@ from django.conf import settings
 urlpatterns = [
     path('', index, name='home'),
     path('books/', books, name='books'),
-    path('books/topic/<slug:topic_name>/', books_topic, name='topic'),
+    path('books/topic/', books_topic, name='books_all'),
+    path('books/topic/<slug:topic_name>/', books_topic, name='books_topic'),
     path('books/post/<slug:post_name>/', post, name='post'),
 ]
 

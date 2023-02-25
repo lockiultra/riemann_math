@@ -7,7 +7,7 @@ class Book(models.Model):
     desc = models.TextField()
     authors = models.ManyToManyField('Author')
     categories = models.ManyToManyField('Category')
-    links = models.ForeignKey('Links', on_delete=models.PROTECT)
+    # links = models.ForeignKey('Links', on_delete=models.PROTECT)
     img = models.ImageField(upload_to='images/')
     time_create = models.DateTimeField(auto_now=True)
     time_update = models.DateTimeField(auto_now_add=True)
@@ -37,6 +37,7 @@ class Category(models.Model):
     title = models.CharField(max_length=255)
     desc = models.TextField()
     img = models.ImageField(upload_to='images/categories', null=True)
+    topic_name = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -47,6 +48,7 @@ class Category(models.Model):
         ordering = ['id']
 
 class Links(models.Model):
+    book_name = models.ForeignKey('Book', on_delete=models.PROTECT, null=True)
     ozon_link = models.CharField(max_length=255, blank=True)
     ymarket_link = models.CharField(max_length=255, blank=True)
     wb_link = models.CharField(max_length=255, blank=True)
