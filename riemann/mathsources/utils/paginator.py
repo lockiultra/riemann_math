@@ -14,6 +14,6 @@ def _get_page_num(request):
     return 1
 
 def _get_books_query(topic):
-    if topic:
+    if topic and topic != 'all':
         return Book.objects.filter(categories__topic_name=topic)
     return Book.objects.all()
