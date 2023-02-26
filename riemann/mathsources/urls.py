@@ -9,7 +9,6 @@ urlpatterns = [
     path('books/topic/', books_topic, name='books_all'),
     path('books/topic/<slug:topic_name>/', books_topic, name='books_topic'),
     path('books/post/<slug:post_name>/', post, name='post'),
-    path('test/', test, name='test'),
 ]
 
 if settings.DEBUG:
