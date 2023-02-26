@@ -11,6 +11,7 @@ class Book(models.Model):
     img = models.ImageField(upload_to='images/')
     time_create = models.DateTimeField(auto_now=True)
     time_update = models.DateTimeField(auto_now_add=True)
+    book_name = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.title

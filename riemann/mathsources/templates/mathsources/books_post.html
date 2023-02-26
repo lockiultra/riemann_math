@@ -1,0 +1,34 @@
+{% extends 'mathsources/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'mathsources/css/books_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="book-description">
+    <div class="book-image">
+        <img src={{ book.img.url }} alt="">
+    </div>
+    <div class="book-info">
+        <h1>{{ book.title }}</h1>
+        {% for author in book.authors.all %}
+        <p>{{ author }}</p>
+        {% endfor %}
+        <p>{{ book.desc }}</p>
+        {% for cat in book.categories.all %}
+        <p>{{ cat }}</p>
+        {% endfor %}
+        <!-- links -->
+        {% if book.links.YMarket %}
+        <a href={{ book.links.YMarket }}>YMarket</a>
+        {% endif %}
+        {% if book.links.Ozon %}
+        <a href={{ book.links.Ozon }}>Ozon</a>
+        {% endif %}
+        {% if book.links.Wildberries %}
+        <a href={{ book.links.Wildberries }}>Wildberries</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

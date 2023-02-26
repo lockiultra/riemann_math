@@ -8,7 +8,7 @@ urlpatterns = [
     path('books/', books, name='books'),
     path('books/topic/', books_topic, name='books_all'),
     path('books/topic/<slug:topic_name>/', books_topic, name='books_topic'),
-    path('books/post/<slug:post_name>/', post, name='post'),
+    path('books/post/<slug:book_name>/', post, name='post'),
 ]
 
 if settings.DEBUG:

@@ -9,7 +9,7 @@
 <div class="flat-row down">
     {% for book in page_obj %}
         <div class="flat-container">
-            <a href="">
+            <a href="{% url 'post'  book.book_name %}">
                 <img src={{book.img.url|default:"" }} alt="">
                 <h3>{{ book.title }}</h3>
             </a>
@@ -17,6 +17,7 @@
     {% endfor %}
 </div>
 <!-- pagination -->
+{% if page_obj %}
 <div class="pagination">
     {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}">
@@ -34,4 +35,9 @@
         <div class="page_num disabled">...</div>
     {% endif %}
 </div>
+{% else %}
+<div class="flat-row">
+    <p>Извините, но по категории "{{ topic_name }}" на данный момент нет книг.</p>
+</div>
+{% endif %}
 {% endblock %}
