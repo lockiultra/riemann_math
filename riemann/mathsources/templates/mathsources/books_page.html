@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- books -->
 <div class="flat-row down">
     {% for book in page_obj %}
         <div class="flat-container">
@@ -14,5 +15,23 @@
             </a>
         </div>
     {% endfor %}
-    </div>
+</div>
+<!-- pagination -->
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">
+            <div class="page_num active">{{ page_obj.previous_page_number }}</div>
+        </a>
+    {% else %}
+        <div class="page_num disabled">...</div>
+    {% endif %}
+    <div class="page_num current_page">{{ page_obj.number }}</div>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">
+            <div class="page_num active">{{ page_obj.next_page_number }}</div>
+        </a>
+    {% else %}
+        <div class="page_num disabled">...</div>
+    {% endif %}
+</div>
 {% endblock %}

@@ -49,3 +49,28 @@ body {
     color: #000 !important;
 }
 
+/* pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page_num {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #000 !important;
+}
+
+.current_page {
+    background-color: #999;
+}

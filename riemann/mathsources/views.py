@@ -18,3 +18,7 @@ def books_topic(request, topic_name=''):
 
 def post(request):
     pass
+
+def test(request, topic_name=''):
+    page_obj = get_page_obj(request, topic_name)
+    return render(request, 'mathsources/test.html', {'page_obj': page_obj})
