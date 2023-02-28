@@ -12,6 +12,7 @@ class Book(models.Model):
     time_create = models.DateTimeField(auto_now=True)
     time_update = models.DateTimeField(auto_now_add=True)
     book_name = models.CharField(max_length=255, null=True)
+    link = models.JSONField(default=dict, null=True)
 
     def __str__(self):
         return self.title
@@ -48,12 +49,12 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
         ordering = ['id']
 
-class Links(models.Model):
-    book_name = models.ForeignKey('Book', on_delete=models.PROTECT, null=True)
-    ozon_link = models.CharField(max_length=255, blank=True)
-    ymarket_link = models.CharField(max_length=255, blank=True)
-    wb_link = models.CharField(max_length=255, blank=True)
+# class Links(models.Model):
+#     book_name = models.ForeignKey('Book', on_delete=models.PROTECT, null=True)
+#     ozon_link = models.CharField(max_length=255, blank=True)
+#     ymarket_link = models.CharField(max_length=255, blank=True)
+#     wb_link = models.CharField(max_length=255, blank=True)
 
-    class Meta:
-        verbose_name = 'Ссылки'
-        verbose_name_plural = 'Ссылки'
+#     class Meta:
+#         verbose_name = 'Ссылки'
+#         verbose_name_plural = 'Ссылки'
