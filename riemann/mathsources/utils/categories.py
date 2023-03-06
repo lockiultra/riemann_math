@@ -1,5 +1,4 @@
-from ..models import Category
-
+from category.models import Category
 def get_categories():
     categories = Category.objects.all()
     return categories
