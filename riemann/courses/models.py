@@ -1,10 +1,26 @@
 from django.db import models
 from category.models import Category
+from mptt.models import MPTTModel, TreeForeignKey
 
 # Create your models here.
 
-# class RiemannCourse(models.Model):
-#     pass
+class RiemannCourse(models.Model):
+    title = models.CharField(max_length=255)
+    desc = models.TextField(blank=True)
+    img = models.ImageField(upload_to='images/courses/')
+    categories = models.ManyToManyField(Category)
+    slug_name = models.SlugField(blank=True)
+    course_menu = models.ForeignKey('CourseMenu', on_delete=models.PROTECT, null=True, blank=True)
+
+class CourseMenu(MPTTModel):
+    title = models.CharField(max_length=100)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    def __str__(self):
+        return self.title
+
+    class MPTTMeta:
+        order_insertion_by = ['id']
 
 class Course(models.Model):
     title = models.CharField(max_length=255)
@@ -12,6 +28,8 @@ class Course(models.Model):
     link = models.URLField(blank=False)
     img = models.ImageField(upload_to='images/courses/')
     categories = models.ManyToManyField(Category)
+    slug_name = models.SlugField(null=True)
+    course_menu = models.ForeignKey('CourseMenu', on_delete=models.PROTECT, null=True, blank=True)
 
     def __str__(self):
         return self.title
