@@ -9,7 +9,7 @@
     <div class="flat-row down">
     {% for cat in categories %}
         <div class="flat-container">
-            <a href="{% url 'books_topic' cat.topic_name %}">
+            <a href="{% url 'books_topic' cat.slug_name %}">
                 <img src={{cat.img.url|default:"" }} alt="">
                 <h3>{{ cat.title }}</h3>
             </a>

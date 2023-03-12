@@ -11,8 +11,8 @@ class Book(models.Model):
     img = models.ImageField(upload_to='images/')
     time_create = models.DateTimeField(auto_now=True)
     time_update = models.DateTimeField(auto_now_add=True)
-    book_name = models.CharField(max_length=255, null=True)
     link = models.JSONField(default=dict, null=True)
+    slug_name = models.SlugField(null=True)
 
     def __str__(self):
         return self.title
