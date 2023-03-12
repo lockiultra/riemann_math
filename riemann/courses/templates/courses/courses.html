@@ -1,2 +1,19 @@
 {% extends 'mathsources/base.html' %}
 {% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'mathsources/css/books.css'%}">
+{% endblock %}
+
+{% block content %}
+    <div class="flat-row down">
+    {% for cat in categories %}
+        <div class="flat-container">
+            <a href="{% url 'books_topic' cat.slug_name %}">
+                <img src={{cat.img.url|default:"" }} alt="">
+                <h3>{{ cat.title }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock%}
