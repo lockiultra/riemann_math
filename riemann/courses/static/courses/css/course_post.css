@@ -26,10 +26,12 @@
 .course-title {
     font-weight: bold;
     margin: 0 0 10px 0;
+    margin-left: 20px;
 }
 
 .course-description {
     margin: 0;
+    margin-left: 20px;
 }
 
 .course-link {
@@ -40,6 +42,8 @@
     border-radius: 5px;
     text-decoration: none;
     margin-top: 20px;
+    margin-left: 20px;
+    width: 200px;
 }
 
 .course-link:hover {

@@ -1,6 +1,7 @@
 from django.db import models
 from category.models import Category
 from mptt.models import MPTTModel, TreeForeignKey
+from django import forms
 
 # Create your models here.
 
@@ -39,7 +40,7 @@ class Course(models.Model):
         ordering = ['title', 'id']
 
 class Comment(models.Model):
-    author = models.CharField(max_length=100, blank=True, null=True)
+    author = models.CharField(max_length=100, blank=True, default='Аноним')
     text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey('Course', on_delete=models.PROTECT)
@@ -51,3 +52,7 @@ class Comment(models.Model):
         verbose_name = 'Комментарии'
         verbose_name_plural = 'Комментарии'
         ordering = ['date', 'author']
+
+# class CommentForm(forms.Form):
+#     author = forms.CharField(label='Author', max_length=100)
+#     text = forms.TimeField(label='Text')

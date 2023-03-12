@@ -12,18 +12,21 @@
         <h1 class="course-title">{{ course.title }}</h1>
         <p class="course-description">{{ course.desc }}</p>
         <a href="{{ course.link }}" class="course-link">К курсу</a>
+        <a href="{% url 'add_comment' course.slug_name %}" class="course-link">Добавить комментарий</a>
     </div>
 </div>
 
-<h2>Комментарии</h2>
+<h2 class="comment">Комментарии</h2>
 
+{% for comment in comments %}
 <div class="comment">
     <div class="comment-body">
         <div class="comment-info">
-            <div class="comment-author">Name</div>
-            <div class="comment-date">Date</div>
+            <div class="comment-author">{{ comment.author}}</div>
+            <div class="comment-date">{{ comment.date }}</div>
         </div>
-        <p class="comment-text">Text</p>
+        <p class="comment-text">{{ comment.text }}</p>
     </div>
 </div>
+{% endfor %}
 {% endblock %}
