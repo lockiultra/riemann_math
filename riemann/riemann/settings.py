@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mathsources.apps.MathsourcesConfig',
     'courses.apps.CoursesConfig',
     'category.apps.CategoryConfig',
+    'mptt',
 ]
 
 MIDDLEWARE = [
