@@ -1,0 +1,29 @@
+{% extends 'mathsources/base.html' %}
+{% load static %}
+
+{%block head %}
+<link rel="stylesheet" href="{% static 'courses/css/course_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="course-container">
+    <div class="course-image"><img src="{{ course.img.url }}" alt=""></div>
+    <div class="course-details">
+        <h1 class="course-title">{{ course.title }}</h1>
+        <p class="course-description">{{ course.desc }}</p>
+        <a href="{{ course.link }}" class="course-link">К курсу</a>
+    </div>
+</div>
+
+<h2>Комментарии</h2>
+
+<div class="comment">
+    <div class="comment-body">
+        <div class="comment-info">
+            <div class="comment-author">Name</div>
+            <div class="comment-date">Date</div>
+        </div>
+        <p class="comment-text">Text</p>
+    </div>
+</div>
+{% endblock %}

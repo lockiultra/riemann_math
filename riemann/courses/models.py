@@ -7,7 +7,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 class RiemannCourse(models.Model):
     title = models.CharField(max_length=255)
     desc = models.TextField(blank=True)
-    img = models.ImageField(upload_to='images/courses/')
+    img = models.ImageField(upload_to='images/courses/', blank=True)
     categories = models.ManyToManyField(Category)
     slug_name = models.SlugField(blank=True)
     course_menu = models.ForeignKey('CourseMenu', on_delete=models.PROTECT, null=True, blank=True)
@@ -26,10 +26,9 @@ class Course(models.Model):
     title = models.CharField(max_length=255)
     desc = models.TextField(blank=False)
     link = models.URLField(blank=False)
-    img = models.ImageField(upload_to='images/courses/')
+    img = models.ImageField(upload_to='images/courses/', blank=True)
     categories = models.ManyToManyField(Category)
     slug_name = models.SlugField(null=True)
-    course_menu = models.ForeignKey('CourseMenu', on_delete=models.PROTECT, null=True, blank=True)
 
     def __str__(self):
         return self.title
