@@ -38,3 +38,17 @@ class Course(models.Model):
         verbose_name = 'Курсы'
         verbose_name_plural = 'Курсы'
         ordering = ['title', 'id']
+
+class Comment(models.Model):
+    author = models.CharField(max_length=100, blank=True, null=True)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    course = models.ForeignKey('Course', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f'{self.author}: {self.text}'
+    
+    class Meta:
+        verbose_name = 'Комментарии'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['date', 'author']
